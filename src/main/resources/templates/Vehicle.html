@@ -1,0 +1,106 @@
+<div th:fragment="vehicle" class="card mb-4 box-shadow bg-dark text-light">
+    <img class="card-img-top" v-bind:src="s3VehicleImageBucket + vehicle.imageUrl" alt="Card image cap">
+    <ul class="card-body" style="list-style: none">
+        <li class="card-text">{{vehicle.description}}</li>
+        <li>
+            <ul  class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-dark" data-toggle="tooltip" title="Vehicle Manufacturer"><span class="fas"> Make </span> : <span class="text-info">{{vehicle.make}}</span></li>
+                <li class="list-group-item list-group-item-dark " data-toggle="tooltip" title="Vehicle Model"><span class="fas">Model</span> : <span class="text-info">{{vehicle.model}}</span></li>
+                <li class="list-group-item list-group-item-dark " data-toggle="tooltip" title="Year of Manufacture"><span class="fas">Year</span> : <span class="text-info">{{vehicle.year}}</span></li>
+                <li class="list-group-item list-group-item-dark " data-toggle="collapse" title="Vehicle Details" v-bind:data-target="'#details' + vehicle.model+index">
+                    <a>
+                        <span class="fas fa-chevron-circle-down openDown">&nbsp;&nbsp;&nbsp;Details</span>
+                    </a>
+                    <ul v-bind:id="'details' + vehicle.model+index" class="collapse" style="padding-left: 1px;" >
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Performance Details"><span class="fas">Performance</span>
+                            <ul id="performance" style="padding-left: 1px;" >
+                                <li class="dropdown-item" data-toggle="tooltip" title="Zero to Sixty (Seconds)">0-60: <span class="text-info">{{vehicle.zeroToSixty}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Top Speed (Miles per Hour)">Top Speed: <span class="text-info">{{vehicle.topSpeed}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Engine power (BHP or KW)">Engine Power: <span class="text-info">{{vehicle.enginePower}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Max power at peak RPM">Power RPM: <span class="text-info">{{vehicle.maximumEnginePowerRPM}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Max Engine Torque">Torque: <span class="text-info">{{vehicle.engineTorque}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Max Torque at peak RPM">Torque RPM: <span class="text-info">{{vehicle.maximumEngineTorque}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Emissions Details"><span class="fas">Emissions</span>
+                            <ul id="emissions" style="padding-left: 1px;">
+                                <li class="dropdown-item" data-toggle="tooltip" title="CO2 Emissions">CO2 Emissions: <span class="text-info">{{vehicle.cO2Emissions}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Euro Emissions Rating">Euro Emissions: <span class="text-info">{{vehicle.cO2Emissions}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Engine and Drive Train Details" ><span class="fas">Engine and Drive Train</span>
+                            <ul id="engineandDriveTrain" style="padding-left: 1px;">
+                                <li class="dropdown-item" data-toggle="tooltip" title="Type of Fuel">FuelType: <span class="text-info">{{vehicle.fuelType}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Size of Engine">Capacity: <span class="text-info">{{vehicle.capacity}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Number of Gears">Gears: <span class="text-info">{{vehicle.gears}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Number of Valves">Number of Valves: <span class="text-info">{{vehicle.numberOfValves}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Transmission">Transmission: <span class="text-info">{{vehicle.transmission}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Fuel Consumption"><span class="fas">Fuel Consumption</span>
+                            <ul id="fuelConsumption" style="padding-left: 1px;">
+                                <li class="dropdown-item" data-toggle="tooltip" title="Average Combined Consumption">EC Combined: <span class="text-info">{{vehicle.eCCombined}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Urban Consumption">EC Urban: <span class="text-info">{{vehicle.eCExtraUrban}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Extra Urban Consumptions">EC Extra Urban: <span class="text-info">{{vehicle.eCUrban}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Warranty Information"><span class="fas">Warranty</span>
+                            <ul style="padding-left: 1px;" >
+                                <li class="dropdown-item" data-toggle="tooltip" title="Paintwork Warranty months">Paintwork: <span class="text-info">{{vehicle.paintworkWarrantyMonths}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Service Interval Frequency months">Service Interval: <span class="text-info">{{vehicle.serviceIntervalFrequencyMonths}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Service Interval Mileage">Service Mileage: <span class="text-info">{{vehicle.serviceIntervalMileage}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Manufacturers warranty (miles)">Warranty Miles: <span class="text-info">{{vehicle.standardManufacturersWarrantyMiles}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Manufacturers Warranty (years)">Warranty Years: <span class="text-info">{{vehicle.standardManufacturersWarrantyYears}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Insurance and Protection"><span class="fas">Insurance & Protection</span>
+                            <ul id="general" style="padding-left: 1px;" >
+                                <li class="dropdown-item" data-toggle="tooltip" title="Insurance Group">Insurance Group: <span class="text-info">{{vehicle.insuranceGroup}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="NCAP Adult Occupant Protection">Adult NCAP: <span class="text-info">{{vehicle.nCAPAdultOccupantProtection}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="NCAP Child Occupant Protection">Child NCAP: <span class="text-info">{{vehicle.nCAPChildOccupantProtection}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="NCAP Pedestrian Protection">Pedestrian NCAP: <span class="text-info">{{vehicle.nCAPPedestrianProtection}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Safety Assist extras">Safety Assist: <span class="text-info">{{vehicle.nCAPSafetyAssist}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="NCAP Overall Rating">Overall Rating: <span class="text-info">{{vehicle.nCAPOverallRating}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Tyres</span>
+                            <ul id="tyres" style="padding-left: 1px;">
+                                <li class="dropdown-item" data-toggle="tooltip" title="Front Tyre Size">Tyre Size Front: <span class="text-info">{{vehicle.tyreSizeFront}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Rear Tyre Size">Tyre Size Rear: <span class="text-info">{{vehicle.tyreSizeRear}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Dimensions</span>
+                            <ul id="vehicleDimensions" style="padding-left: 1px;">
+                                <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Height">Height: <span class="text-info">{{vehicle.height}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Length">Length: <span class="text-info">{{vehicle.length}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Wheelbase" >Wheelbase: <span class="text-info">{{vehicle.wheelbase}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Width" >Width: <span class="text-info">{{vehicle.widthIncludingMirrors}}</span></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Capacities</span>
+                            <ul id="vehicleCapacity" style="padding-left: 1px;" >
+                                <li class="dropdown-item" data-toggle="tooltip" title="Fuel Tank Capacity">Fuel Capacity: <span class="text-info">{{vehicle.fuelTankCapacityLitres}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Gross Vehicle Weight" >Gross Weight: <span class="text-info">{{vehicle.grossVehicleWeight}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Luggage Capacity seats down" >Luggage Cap SD: <span class="text-info">{{vehicle.luggageCapacitySeatsDown}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Luggage Capacity seats up" >Luggage Cap SU: <span class="text-info">{{vehicle.luggageCapacitySeatsUp}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Max. Towing Weight" >Max. Tow: <span class="text-info">{{vehicle.maxTowingWeightUnbraked}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Max. Towing Weight braked" >Max. Tow braked: <span class="text-info">{{vehicle.maxTowingWeightBraked}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Number of Seats" >No. of Seats: <span class="text-info">{{vehicle.noOfSeats}}</span></li>
+                                <li class="dropdown-item" data-toggle="tooltip" title="Turning Circle - (kerb to kerb)" >Turning Circle: <span class="text-info">{{vehicle.turningCircleKerbToKerb}}</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <br/>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a type="button" th:href="@{/quote}" class="btn btn-primary btn-sm ">Quote Me</a>
+                <!--<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Hide</button>-->
+            </div>
+            <a class="text-primary">{{vehicle.lowestPrice}}</a>
+        </div>
+    </ul>
+</div>

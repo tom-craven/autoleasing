@@ -1,0 +1,55 @@
+Specification
+
+Make
+Model
+Year
+Emissions
+    CO2 Emissions
+    Standard Euro Emissions
+Engine and Drive Train
+    FuelType
+    Engine Size
+    Gears
+    Number of Valves
+    Transmission
+Fuel Consumption
+    EC Combined
+    EC Extra Urban
+    EC Urban
+General
+    Bodywork warranty
+    Insurance Group
+    NCAP Adult Occupant Protection
+    NCAP Child Occupant Protection
+    NCAP Overall Rating
+    NCAP Pedestrian Protection
+    NCAP Safety Assist
+    Paintwork Warranty (months)
+    Service Interval Frequency (months)
+    Service Interval Mileage
+    Standard manufacturers warranty (miles)
+    Standard manufacturers warranty (years)
+Performance
+    0-60
+    Top Speed
+    Engine Power
+    Maximum Power RPM
+    Torque
+    Maximum Torque
+Tyres
+    Tyre Size Front
+    Tyre Size Rear
+Vehicle Dimensions
+    Height
+    Length
+    Wheelbase
+    Width (including mirrors)
+Weight and Capacities
+    Fuel Tank Capacity (litres)
+    Gross Vehicle Weight
+    Luggage Capacity (seats down)
+    Luggage Capacity (seats up)
+    Max. Towing Weight - (braked)
+    Max. Towing Weight - (unbraked)
+    No. of Seats
+    Turning Circle - (kerb to kerb)

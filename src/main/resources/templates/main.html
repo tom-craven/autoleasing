@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="leasing,car lease deals,contract hire and leasing,vehicle leasing,personal car leasing,contract Hire,contract car hire,personal contract hire,van contract hire,cheap car hire">
+    <meta name="author" content="cravenT">
+    <meta name="description" content="Nationwide Suppliers of Vans and Cars - Laurel Autolease">
+    <link rel="icon" th:href="@{~/img/favicon.png}">
+
+    <title>Laurel Autolease</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{~/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{~/css/album.css}" rel="stylesheet">
+</head>
+<body>
+<header th:replace="Header :: header"></header>
+<main role="main" style="background-color: #000000;padding: 7px 29px 21px;">
+
+    <section th:replace="Carousel :: carousel"></section>
+
+    <div class="album py-5"  style="background-color:#000000">
+        <div class="container">
+            <div class="row" id = "listComponent">
+                <div class="col-md-4" v-for = "(vehicle, index) in vehicles" :key="index">
+                    <div th:replace="Vehicle :: vehicle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="Footer :: footer"></footer>
+
+
+<!--==================================================-->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{~/js/jquery-slim.min.js}"></script>
+<!--  <script>window.jQuery || document.write("<script th:src='/js/jquery-slim.min.js'><\/script>")</script>-->
+<script th:src="@{~/js/popper.min.js}"></script>
+<script th:src="@{~/js/bootstrap.min.js}"></script>
+<script th:src="@{~/js/vue.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var vueModel = /*[[${vueModel}]]*/ null;
+    var vehicles = /*[[${vehicles}]]*/ null;
+    var s3VehicleImageBucket = /*[[${s3VehicleImageBucket}]]*/ null;
+    var s3ImageBucket = /*[[${s3ImageBucket}]]*/ null;
+    var footerComponent = new Vue({
+        el: '#footerComponent',
+        data: {
+            footer: vueModel,
+            s3ImageBucket: s3ImageBucket
+        }
+    });
+
+    var headerComponent = new Vue({
+        el: '#headerComponent',
+        data: {
+            vueModel: vueModel,
+            s3ImageBucket: s3ImageBucket
+        }
+    });
+
+    var listComponent = new Vue({
+        el: '#listComponent',
+        data: {
+            s3VehicleImageBucket: s3VehicleImageBucket,
+            vehicles: vehicles
+        }
+    });
+    /*]]>*/
+</script>
+<script th:inline="javascript">
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+</body>
+</html>

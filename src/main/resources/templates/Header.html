@@ -1,0 +1,37 @@
+<header id="headerComponent" th:fragment="header" >
+    <div class="collapse" id="navbarvueModel" style="background-color: #000000">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">{{vueModel.about}}</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a v-bind:href="vueModel.twitterLink" class="text-white"><i class="fab fa-twitter-square"></i>&nbsp;&nbsp;&nbsp;Follow on Twitter</a></li>
+                        <li><a v-bind:href="vueModel.facebookLink" class="text-white"><i class="fab fa-facebook"></i>&nbsp;&nbsp;&nbsp;Like on Facebook</a></li>
+                        <li><a v-bind:href="vueModel.linkedinLink" class="text-white"><i class="fab fa-linkedin"></i>&nbsp;&nbsp;&nbsp;Follow on LinkedIn</a></li>
+                        <li><a v-bind:href="'mailto:' + vueModel.email + '?Subject=General%20Enquiry'" class="text-white"><i class="far fa-envelope"></i>&nbsp;&nbsp;&nbsp;Email me: <span class="text-light">{{vueModel.email}}</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark box-shadow text-light" style="background-color: #000000">
+        <div class="container d-flex justify-content-between ">
+            <img style="width: 7em" v-bind:src="s3ImageBucket + vueModel.logoLink"><span class="fas">
+            <h1><strong>Laurel</strong> Autolease</h1>
+            <h3>Tel. {{vueModel.telephoneNumber}}</h3>
+        </span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarvueModel" aria-controls="navbarvueModel" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <p class="btn-group-vertical pull-right" style="margin-bottom: 0px;">
+                <a th:href="@{/quote}" class="btn btn-primary my-2">Request a Quote</a>
+                <a th:href="@{/callback}" class="btn btn-secondary my-2">Request a Callback</a>
+            </p>
+        </div>
+    </div>
+</header>

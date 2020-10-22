@@ -1,0 +1,9 @@
+[Unit]
+Description=lal
+After=syslog.target
+
+[Service]
+ExecStart=/home/ec2-user/thymeleaf-vue-spring-boot-0.1.0.jar
+
+[Install]
+WantedBy=multi-user.target

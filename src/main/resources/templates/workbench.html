@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="cravenT">
+    <link rel="icon" th:href="@{~/img/favicon.png}">
+
+    <title>Laurel Autolease</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{~/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{~/css/album.css}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="collapse" id="navbarHeader" style="background-color: #000000">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                        <li><a href="#" class="text-white">Like on Facebook</a></li>
+                        <li><a href="#" class="text-white">Email me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark box-shadow text-light" style="background-color: #000000">
+        <div class="container d-flex justify-content-between ">
+            <img style="width: 7em" src="img/LaurelBoldWhite.png"><span class="fas"><h1><strong>Laurel</strong> Autolease</h1>
+            <h3>01234 567890</h3></span>
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <!-- <img src="img/favicon.png">-->
+                <!--   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>-->
+                <!--     <strong>&nbsp;Auto-Leasing</strong>-->
+            </a>
+            <p class="btn-group-vertical">
+                <a href="#" class="btn btn-primary my-2">Request a Quote</a>
+                <a href="#" class="btn btn-secondary my-2">Request a Callback</a>
+            </p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main role="main" style="background-color: #000000;">
+
+    <section class="jumbotron text-center" style="padding-top: 7px;padding-bottom: 21px;background-color:#000000">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" th:src="@{~/img/AudiHeadLights.jpg}" alt="Second slide">
+                    <div class="carousel-caption">
+                        <h1 class="display-4 font-weight-normal">Putting You In The Driving Seat</h1>
+                        <p class="lead text-muted">
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" th:src="@{~/img/AudiR8Rear.jpg}" alt="First slide">
+                    <div class="carousel-caption">
+                        <h1 class="display-4 font-weight-normal">Business & Personal</h1>
+                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                        <p class="lead text-muted">
+
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" th:src="@{~/img/BMWCars.jpg}" alt="Third slide">
+                    <div class="carousel-caption">
+                        <h1 class="display-4 font-weight-normal">Contract Hire & Leasing</h1>
+                        <p class="lead text-muted">
+                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5"  style="background-color:#000000">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" id = "vue_data">
+                    <div class="card mb-4 box-shadow bg-dark text-light">
+                        <img class="card-img-top"  th:src="${vehicle.imageUrl}" alt="Card image cap">
+                        <ul class="card-body" style="list-style: none">
+                            <li class="card-text">Some buttons will not be visible to the customer</li>
+                            <li>
+                                <ul  class="list-group list-group-flush">
+                                    <li class="list-group-item list-group-item-dark" data-toggle="tooltip" title="Vehicle Manufacturer"><span class="fas"> Make </span> : <span class="text-info">{{vehicle.make}}</span></li>
+                                    <li class="list-group-item list-group-item-dark " data-toggle="tooltip" title="Vehicle Model"><span class="fas">Model</span> : <span class="text-info">{{vehicle.model}}</span></li>
+                                    <li class="list-group-item list-group-item-dark " data-toggle="tooltip" title="Year of Manufacture"><span class="fas">Year</span> : <span class="text-info">{{vehicle.year}}</span></li>
+                                    <li class="list-group-item list-group-item-dark " data-toggle="collapse" title="Vehicle Details" data-target="#details">
+                                        <a>
+                                            <span class="fas fa-chevron-circle-down openDown">&nbsp;&nbsp;&nbsp;Details</span>
+                                        </a>
+                                        <ul id="details" class="collapse" style="padding-left: 1px;" >
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Performance Details"><span class="fas">Performance</span>
+                                                <ul id="performance" style="padding-left: 1px;" >
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Zero to Sixty (Seconds)">0-60: <span class="text-info">{{vehicle.performance.zeroToSixty}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Top Speed (Miles per Hour)">Top Speed: <span class="text-info">{{vehicle.performance.topSpeed}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Engine power (BHP or KW)">Engine Power: <span class="text-info">{{vehicle.performance.enginePower}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Max power at peak RPM">Power RPM: <span class="text-info">{{vehicle.performance.maximumEnginePowerRPM}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Max Engine Torque">Torque: <span class="text-info">{{vehicle.performance.engineTorque}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Max Torque at peak RPM">Torque RPM: <span class="text-info">{{vehicle.performance.maximumEngineTorque}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Emissions Details"><span class="fas">Emissions</span>
+                                                <ul id="emissions" style="padding-left: 1px;">
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="CO2 Emissions">CO2 Emissions: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Euro Emissions Rating">Euro Emissions: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Engine and Drive Train Details" ><span class="fas">Engine and Drive Train</span>
+                                                <ul id="engineandDriveTrain" style="padding-left: 1px;">
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Type of Fuel">FuelType: <span class="text-info">{{vehicle.engineAndDriveTrain.fuelType}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Size of Engine">Capacity: <span class="text-info">{{vehicle.engineAndDriveTrain.capacity}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Number of Gears">Gears: <span class="text-info">{{vehicle.engineAndDriveTrain.gears}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Number of Valves">Number of Valves: <span class="text-info">{{vehicle.engineAndDriveTrain.numberOfValves}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Transmission">Transmission: <span class="text-info">{{vehicle.engineAndDriveTrain.transmission}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Fuel Consumption"><span class="fas">Fuel Consumption</span>
+                                                <ul id="fuelConsumption" style="padding-left: 1px;">
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Average Combined Consumption">EC Combined: <span class="text-info">{{vehicle.fuelConsumption.eCCombined}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Urban Consumption">EC Urban: <span class="text-info">{{vehicle.fuelConsumption.eCExtraUrban}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Extra Urban Consumptions">EC Extra Urban: <span class="text-info">{{vehicle.fuelConsumption.eCUrban}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Warranty Information"><span class="fas">Warranty</span>
+                                                <ul style="padding-left: 1px;" >
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Paintwork Warranty months">Paintwork: <span class="text-info">{{vehicle.warranty.paintworkWarrantyMonths}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Service Interval Frequency months">Service Interval: <span class="text-info">{{vehicle.warranty.serviceIntervalFrequencyMonths}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Service Interval Mileage">Service Mileage: <span class="text-info">{{vehicle.warranty.serviceIntervalMileage}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Manufacturers warranty (miles)">Warranty Miles: <span class="text-info">{{vehicle.warranty.standardManufacturersWarrantyMiles}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Manufacturers Warranty (years)">Warranty Years: <span class="text-info">{{vehicle.warranty.standardManufacturersWarrantyYears}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;" title="Insurance and Protection"><span class="fas">Insurance & Protection</span>
+                                                <ul id="general" style="padding-left: 1px;" >
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Insurance Group">Insurance Group: <span class="text-info">{{vehicle.ip.insuranceGroup}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="NCAP Adult Occupant Protection">Adult NCAP: <span class="text-info">{{vehicle.ip.nCAPAdultOccupantProtection}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="NCAP Child Occupant Protection">Child NCAP: <span class="text-info">{{vehicle.ip.nCAPChildOccupantProtection}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="NCAP Pedestrian Protection">Pedestrian NCAP: <span class="text-info">{{vehicle.ip.nCAPPedestrianProtection}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Safety Assist extras">Safety Assist: <span class="text-info">{{vehicle.ip.nCAPSafetyAssist}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="NCAP Overall Rating">Overall Rating: <span class="text-info">{{vehicle.ip.nCAPOverallRating}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Tyres</span>
+                                                <ul id="tyres" style="padding-left: 1px;">
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Front Tyre Size">Tyre Size Front: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Rear Tyre Size">Tyre Size Rear: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Dimensions</span>
+                                                <ul id="vehicleDimensions" style="padding-left: 1px;">
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Height">Height: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Length">Length: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Wheelbase" >Wheelbase: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Vehicle Width" >Width: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                </ul>
+                                            </li>
+                                            <li class="list-group-item list-group-item-dark" style="padding-left: 15px;"><span class="fas">Capacities</span>
+                                                <ul id="vehicleCapacity" style="padding-left: 1px;" >
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Fuel Tank Capacity">Fuel Capacity: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Gross Vehicle Weight" >Gross Weight: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Luggage Capacity seats down" >Luggage Cap SD: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Luggage Capacity seats up" >Luggage Cap SU: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Max. Towing Weight" >Max. Tow: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Max. Towing Weight braked" >Max. Tow braked: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Number of Seats" >No. of Seats: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                    <li class="dropdown-item" data-toggle="tooltip" title="Turning Circle - (kerb to kerb)" >Turning Circle: <span class="text-info">{{vehicle.emissions.cO2Emissions}}</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <br/>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-sm ">Quote Me</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Hide</button>
+                                </div>
+                                <a class="text-primary">{{vehicle.lowestPrice}}</a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-12 col-md">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          -->
+            <img style="width:7em" src="img/LaurelBold.png"><small class="d-block mb-3 text-muted">&nbsp;&nbsp;&nbsp;&copy;2017-2018</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Cool stuff</a></li>
+                <li><a class="text-muted" href="#">Random feature</a></li>
+                <li><a class="text-muted" href="#">Team feature</a></li>
+                <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                <li><a class="text-muted" href="#">Another one</a></li>
+                <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Resource</a></li>
+                <li><a class="text-muted" href="#">Resource name</a></li>
+                <li><a class="text-muted" href="#">Another resource</a></li>
+                <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Business</a></li>
+                <li><a class="text-muted" href="#">Education</a></li>
+                <li><a class="text-muted" href="#">Government</a></li>
+                <li><a class="text-muted" href="#">Gaming</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Team</a></li>
+                <li><a class="text-muted" href="#">Locations</a></li>
+                <li><a class="text-muted" href="#">Privacy</a></li>
+                <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!--==================================================-->
+<!-- Placed at the end of the document so the pages load faster -->
+<script th:src="@{~/js/jquery-slim.min.js}"></script>
+<!--  <script>window.jQuery || document.write("<script th:src='/js/jquery-slim.min.js'><\/script>")</script>-->
+<script th:src="@{~/js/popper.min.js}"></script>
+<script th:src="@{~/js/bootstrap.min.js}"></script>
+<script th:src="@{~/js/vue.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var vehicle = /*[[${vehicle}]]*/ null;
+
+    /*]]>*/
+    var vm = new Vue({
+        el: '#vue_data',
+        data: {
+            vehicle: vehicle
+        }
+    });
+</script>
+
+</body>
+</html>

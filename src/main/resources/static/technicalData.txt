@@ -1,0 +1,60 @@
+Technical Data
+
+emissions : [{
+    cO2Emissions:"",
+    standardEuroEmissions:""
+    }],
+engineAndDriveTrain : [{
+    engineSize:"",
+    gears:"",
+    numberofvalves:"",
+    transmission:""
+     }],
+fuelConsumption : [{
+    eCCombined:"",
+    eCExtraUrban:"",
+    eCUrban:""
+     }],
+general : [{
+    bodyworkWarrantyMonths:"",
+    insuranceGroup:"",
+    nCAPAdultOccupantProtection:"",
+    nCAPChildOccupantProtection:"",
+    nCAPOverallRating:"",
+    nCAPPedestrianProtection:"",
+    nCAPSafetyAssist:"",
+    paintworkWarrantyMonths:"",
+    serviceIntervalFrequencyMonths:"",
+    serviceIntervalMileage:"",
+    standardManufacturersWarrantyMiles:"",
+    standardManufacturersWarrantyYears:""
+     }],
+performance : [{
+    zeroToSixty:"",
+    enginePowerBHP:"",
+    enginePowerKw:"",
+    maximumEnginePowerRPM:"",
+    engineTorque:"",
+    maximumEngineTorque:"",
+    topSpeed:""
+     }],
+tyres : [{
+    tyreSizeFront:"",
+    tyreSizeRear:""
+     }],
+vehicleDimensions : [{
+    height:"",
+    length:"",
+    wheelbase:"",
+    widthIncludingMirrors:""
+    }],
+weightAndCapacities: [{
+    fuelTankCapacityLitres:"",
+    grossVehicleWeight:"",
+    luggageCapacitySeatsDown:"",
+    luggageCapacitySeatsUp:"",
+    maxTowingWeightBraked:"",
+    maxTowingWeightUnbraked:"",
+    noOfSeats:"",
+    turningCircleKerbToKerb:""
+     }]
